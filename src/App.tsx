@@ -1,29 +1,13 @@
+// import type { InputHTMLAttributes, JSX } from 'react';
 import './App.css'
+import { FormularioDeEvento } from './componentes/FormularioDeEvento'
 
-function TituloDoFormulario(props: {children: string}) {
-  return <h2>{props.children}</h2>
-}
 
-function Label(props: {children: string, htmlFor: string}){
-  const {children, htmlFor} = props;
-  return <label htmlFor={htmlFor}>{children}</label>
-}
-
-function FormularioDeEvento() {
-  return(
-    <form className='form-evento'>
-        <TituloDoFormulario>
-          Preencha para criar um evento.
-        </TituloDoFormulario>
-      <fieldset>
-        <Label htmlFor='nome'>
-          Qual o nome do evento?
-        </Label>
-        <input type='text' id='nome' placeholder='Summer dev hits'/>
-      </fieldset>
-    </form>
-  );
-}
+// explicitando : JSX.Element como tipo de retorno para fins didáticos.
+// TypeScript já os infere pelo retorno.
+// function TituloDoFormulario(props: {children: string}): JSX.Element{
+//   return <h2>{props.children}</h2>
+// }
 
 function App() {
   return (
