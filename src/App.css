@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    background-color: #06151A;
 }
 
 header{
@@ -8,23 +9,4 @@ header{
     padding-right: 32px;
     display: flex;
     justify-content: center;
-}
-
-section {
-/* Auto layout */
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-/* padding: 0px 360px; */
-
-/* width: 1920px;
-height: 600px; */
-
-/* Linear */
-background: linear-gradient(180deg, #17E4B9 0%, #091D24 100%);
-}
-
-section img {
-    max-width: 90%;
 }
