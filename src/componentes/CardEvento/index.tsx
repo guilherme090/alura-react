@@ -14,7 +14,7 @@ export function CardEvento({evento}: {evento: eventoType}) {
             <img src={evento.capa} alt={evento.titulo}/>
             <div className='corpo'>
                 <p className='tag'>
-                    {evento.tema.nome}
+                    {evento.tema? evento.tema.nome: null}
                 </p>
                 <p className='data'>
                     {evento.data.toLocaleDateString('pt-BR')}

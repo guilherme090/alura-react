@@ -44,7 +44,7 @@ function App() {
 
   function adicionarEvento(evento: eventoType): void{
     // eventos.push(evento);
-    // //console.log("eventos => \n", eventos);
+    // console.log("eventos => \n", eventos);
     setEventos([...eventos, evento]);
   }
 
@@ -55,15 +55,18 @@ function App() {
       </header>
       <Banner />
       <FormularioDeEvento temas={temas} aoSubmeter={adicionarEvento} />
-
-      {temas.map(item => 
-        <section key={'key' + item.id}>
-          <Tema tema={item} />
-          {eventos.map((item, index) => (
-            <CardEvento evento={item} key={index} />
-          ))}
-        </section>
-      )}
+      <section className='container'>
+        {temas.map(item => 
+          <section key={'key' + item.id}>
+            <Tema tema={item} />
+            <div className="eventos">
+              {eventos.map((item, index) => (
+                <CardEvento evento={item} key={index} />
+              ))}
+            </div>
+          </section>
+        )}
+      </section>
     </>
   )
 }
