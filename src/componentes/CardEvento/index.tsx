@@ -1,5 +1,6 @@
 import './card-evento.estilos.css'
 import type { temaType } from '../Tema'
+import questionMarkCoverPicture from '../../assets/question-mark.png'
 
 export type eventoType = {
       capa: string,
@@ -9,9 +10,11 @@ export type eventoType = {
 }
 
 export function CardEvento({evento}: {evento: eventoType}) {
+    console.log(evento.capa.length);
+    const imagemDeCapa = evento.capa.length > 0 ? evento.capa: questionMarkCoverPicture;
     return(
         <div className='card-evento'>
-            <img src={evento.capa} alt={evento.titulo}/>
+            <img src={imagemDeCapa} alt={evento.titulo}/>
             <div className='corpo'>
                 <p className='tag'>
                     {evento.tema? evento.tema.nome: null}

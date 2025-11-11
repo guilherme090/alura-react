@@ -17,10 +17,17 @@ export function FormularioDeEvento({temas, aoSubmeter} : formularioDeEventoType)
 
   function onFormEvento(formData: FormData){
     // console.log(formData);
+    // const temaForm = formData.get('temaEvento')?.toString();
+    // const temaEscolhido = temas.find(tema => tema.id.toString() === temaForm);
 
+    // if(!temaEscolhido) {
+    //   alert("É necessário escolher um tema para o evento.");
+    //   return
+    // }  JUST USING REQUIRED FIELD INSTEAD
+    
     const evento: eventoType = {
       capa: formData.get('capa')?.toString() || '',
-      tema: temas.find(item => item.id.toString() === formData.get('temaEvento'))!,
+      tema: temas.find(tema => tema.id.toString() === formData.get('temaEvento')?.toString())!,
       data: new Date(formData.get('dataEvento')?.toString() || ''),
       titulo: formData.get('nomeEvento')?.toString() || ''
     }
@@ -44,6 +51,7 @@ export function FormularioDeEvento({temas, aoSubmeter} : formularioDeEventoType)
             id='nomeEvento' 
             placeholder='Summer dev hits'
             name='nomeEvento'
+            required
           />
         </CampoDeFormulario>
 
@@ -67,6 +75,7 @@ export function FormularioDeEvento({temas, aoSubmeter} : formularioDeEventoType)
             type='date' 
             id='dataEvento' 
             name='dataEvento'
+            required
           />
         </CampoDeFormulario>
 
@@ -74,7 +83,7 @@ export function FormularioDeEvento({temas, aoSubmeter} : formularioDeEventoType)
           <Label htmlFor='temaEvento'>
             Tema do Evento
           </Label>
-          <ListaSuspensa id='temaEvento' name='temaEvento' itens={temas}>
+          <ListaSuspensa id='temaEvento' name='temaEvento' itens={temas} required>
           </ListaSuspensa>
         </CampoDeFormulario>
 
